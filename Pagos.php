@@ -120,7 +120,7 @@ $custRow = $query->fetch_assoc();
                     <a href="AccionCarta.php?action=placeOrder" class="btn btn-success orderBtn">Realizar pedido <i class="glyphicon glyphicon-menu-right"></i></a>
                 </div>
             </div>
-            <div class="panel-footer">Para más desarrollos ingresa en <a href"https://www.configuroweb.com/46-aplicaciones-gratuitas-en-php-python-y-javascript/#Aplicaciones-gratuitas-en-PHP,-Python-y-Javascript">ConfiguroWeb</a></div>
+            <div class="panel-footer"style= text-align: center>&copy; Héctor García, 2023 - Todos los derechos reservados</div>
         </div>
         <!--Panek cierra-->
     </div>
