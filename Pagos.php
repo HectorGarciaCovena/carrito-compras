@@ -1,20 +1,20 @@
 <?php
-// include database configuration file
+// Incluir archivo de configuración de base de datos
 include 'Configuracion.php';
 
-// initializ shopping cart class
+// Inicializar la clase de carrito de compras
 include 'La-carta.php';
 $cart = new Cart;
 
-// redirect to home if cart is empty
+// Redirigir a HOME (INDEX) si el carrito está vacío
 if ($cart->total_items() <= 0) {
     header("Location: index.php");
 }
 
-// set customer ID in session
+// establecer ID de cliente en la sesión
 $_SESSION['sessCustomerID'] = 1;
 
-// get customer details by session customer ID
+// obtener detalles del cliente por ID de cliente de sesión
 $query = $db->query("SELECT * FROM clientes WHERE id = " . $_SESSION['sessCustomerID']);
 $custRow = $query->fetch_assoc();
 ?>
@@ -63,7 +63,7 @@ $custRow = $query->fetch_assoc();
                     <li role="presentation"><a href="index.php">Inicio</a></li>
                     <li role="presentation"><a href="VerCarta.php">Carrito de Compras</a></li>
                     <li role="presentation" class="active"><a href="Pagos.php">Pagar</a></li>
-                    <li role="presentation"><a href="https://www.configuroweb.com/46-aplicaciones-gratuitas-en-php-python-y-javascript/#Aplicaciones-gratuitas-en-PHP,-Python-y-Javascript">ConfiguroWeb</a></li>
+                    <li role="presentation"><a href="https://www.facebook.com/hectormiguel.garciacovena.9" target="_blank">Héctor García</a></li>
                 </ul>
             </div>
 
@@ -81,7 +81,7 @@ $custRow = $query->fetch_assoc();
                     <tbody>
                         <?php
                         if ($cart->total_items() > 0) {
-                            //get cart items from session
+                            //Obtener artículos del carrito de la sesión
                             $cartItems = $cart->contents();
                             foreach ($cartItems as $item) {
                         ?>
@@ -122,7 +122,7 @@ $custRow = $query->fetch_assoc();
             </div>
             <div class="panel-footer"style= text-align: center>&copy; Héctor García, 2023 - Todos los derechos reservados</div>
         </div>
-        <!--Panek cierra-->
+        
     </div>
 </body>
 

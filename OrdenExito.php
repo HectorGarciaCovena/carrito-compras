@@ -41,7 +41,7 @@ if (!isset($_REQUEST['id'])) {
       </div>
       <div class="panel-footer"style= text-align: center>&copy; Héctor García, 2023 - Todos los derechos reservados</div>
     </div>
-    <!--Panek cierra-->
+    
   </div>
 </body>
 

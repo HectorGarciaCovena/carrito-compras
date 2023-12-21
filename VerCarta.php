@@ -1,5 +1,5 @@
 <?php
-// initializ shopping cart class
+// Inicializar la clase de carrito de compras
 include 'La-carta.php';
 $cart = new Cart;
 ?>
@@ -69,7 +69,7 @@ $cart = new Cart;
                     <tbody>
                         <?php
                         if ($cart->total_items() > 0) {
-                            //get cart items from session
+                            //Obtener artículos del carrito de la sesión
                             $cartItems = $cart->contents();
                             foreach ($cartItems as $item) {
                         ?>
@@ -105,7 +105,7 @@ $cart = new Cart;
             </div>
             <div class="panel-footer"style= text-align: center>&copy; Héctor García, 2023 - Todos los derechos reservados</div>
         </div>
-        <!--Panek cierra-->
+        
 
     </div>
 </body>

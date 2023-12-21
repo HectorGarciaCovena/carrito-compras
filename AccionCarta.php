@@ -4,7 +4,7 @@ date_default_timezone_set("America/Lima");
 include 'La-carta.php';
 $cart = new Cart;
 
-// include database configuration file
+// Se incluye archivo de configuración de base de datos
 include 'Configuracion.php';
 if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
     if($_REQUEST['action'] == 'addToCart' && !empty($_REQUEST['id'])){
@@ -33,18 +33,18 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
         $deleteItem = $cart->remove($_REQUEST['id']);
         header("Location: VerCarta.php");
     }elseif($_REQUEST['action'] == 'placeOrder' && $cart->total_items() > 0 && !empty($_SESSION['sessCustomerID'])){
-        // insert order details into database
+        // Se insertan los detalles del pedido en la base de datos
         $insertOrder = $db->query("INSERT INTO orden (customer_id, total_price, created, modified) VALUES ('".$_SESSION['sessCustomerID']."', '".$cart->total()."', '".date("Y-m-d H:i:s")."', '".date("Y-m-d H:i:s")."')");
         
         if($insertOrder){
             $orderID = $db->insert_id;
             $sql = '';
-            // get cart items
+            // Se obtienen los artículos del carrito
             $cartItems = $cart->contents();
             foreach($cartItems as $item){
                 $sql .= "INSERT INTO orden_articulos (order_id, product_id, quantity) VALUES ('".$orderID."', '".$item['id']."', '".$item['qty']."');";
             }
-            // insert order items into database
+            // Se inserta el pedido realizado en la base de datos
             $insertOrderItems = $db->multi_query($sql);
             
             if($insertOrderItems){
