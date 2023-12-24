@@ -56,7 +56,7 @@ include 'Configuracion.php';
                                         <h4 class="list-group-item-heading"><?php echo $row["name"]; ?></h4>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <p class="lead"><?php echo '$' . $row["price"] . ' COP'; ?></p>
+                                                <p class="lead"><?php echo '$' . $row["price"]; ?></p>
                                             </div>
                                             <div class="col-md-6">
                                                 <a class="btn btn-success" href="AccionCarta.php?action=addToCart&id=<?php echo $row["id"]; ?>">Enviar al Carrito</a>
