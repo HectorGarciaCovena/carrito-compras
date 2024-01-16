@@ -6,15 +6,18 @@ include 'Configuracion.php';
 include 'La-carta.php';
 $cart = new Cart;
 
-// Redirigir a HOME (INDEX) si el carrito está vacío
+// Si el carrito está vacío, el usuario es redirigido a la página "index.php".
 if ($cart->total_items() <= 0) {
     header("Location: index.php");
 }
 
-// establecer ID de cliente en la sesión
+// Se establece el ID del cliente en la sesión. En este caso, se establece como 1, 
+// ya que para el ejemplo, tenemos un único usuario registrado en nuestra Base de Datos
+// mismo que es el que está realizando la compra.
 $_SESSION['sessCustomerID'] = 1;
 
-// obtener detalles del cliente por ID de cliente de sesión
+// Se realiza una consulta a la Base de Datos para obtener los detalles del cliente 
+// cuyo ID coincide con el ID almacenado en la sesión.
 $query = $db->query("SELECT * FROM clientes WHERE id = " . $_SESSION['sessCustomerID']);
 $custRow = $query->fetch_assoc();
 ?>

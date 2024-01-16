@@ -1,5 +1,7 @@
 <?php
-// Inicializar la clase de carrito de compras
+
+// Se inicializa una instancia de la clase "Cart" 
+// que maneja las operaciones relacionadas con el carrito de compras.
 include 'La-carta.php';
 $cart = new Cart;
 ?>
@@ -21,6 +23,10 @@ $cart = new Cart;
             width: 20%;
         }
     </style>
+
+    <!-- Se define una función JavaScript (updateCartItem) 
+        que utiliza jQuery para realizar una solicitud AJAX al archivo "cartAction.php". 
+        Esta función se llama cuando se cambia la cantidad de un producto en el carrito. -->
     <script>
         function updateCartItem(obj, id) {
             $.get("cartAction.php", {

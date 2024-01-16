@@ -1,8 +1,12 @@
 <?php
+
+// Verifica si se ha proporcionado un parámetro 'id' en la solicitud. 
+// Si no se proporciona, redirige al usuario a la página "index.php".
 if (!isset($_REQUEST['id'])) {
   header("Location: index.php");
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 

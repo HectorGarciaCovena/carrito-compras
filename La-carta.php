@@ -2,7 +2,8 @@
 class Cart {
     protected $cart_contents = array();
     
-    public function __construct(){
+    // inicializa la matriz $cart_contents con la información del carrito almacenada en la sesión
+	public function __construct(){
         // Se obtiene la matriz del carrito de compras de la sesión
         $this->cart_contents = !empty($_SESSION['cart_contents'])?$_SESSION['cart_contents']:NULL;
 		if ($this->cart_contents === NULL){
@@ -12,7 +13,8 @@ class Cart {
     }
     
     /**
-	 * Contenido del carrito: Devuelve todo el conjunto del carrito
+	 * Devuelve todos los elementos del carrito en orden inverso (el artículo más reciente primero) 
+	 * y elimina los elementos que no son productos individuales del carrito.
 	 * @param	bool
 	 * @return	array
 	 */
@@ -39,7 +41,7 @@ class Cart {
 	}
     
     /**
-	 * Total de artículos: Devuelve el recuento total de artículos.
+	 * Devuelven el recuento total de artículos y el precio total del carrito, respectivamente.
 	 * @return	int
 	 */
 	public function total_items(){
@@ -55,7 +57,7 @@ class Cart {
 	}
     
     /**
-	 * Inserte artículos en el carrito y guárdelos en la sesión.
+	 * Inserta artículos en el carrito y guarda la información del carrito en la sesión.
 	 * @param	array
 	 * @return	bool
 	 */
@@ -96,7 +98,8 @@ class Cart {
 	}
     
     /**
-	 * Actualizar el carrito
+	 * Actualiza la cantidad y otros detalles de un artículo en el carrito 
+	 * y guarda la información actualizada en la sesión.
 	 * @param	array
 	 * @return	bool
 	 */
@@ -135,7 +138,8 @@ class Cart {
 	}
     
     /**
-	 * Se guarda la matriz del carrito en la sesión.
+	 * Guarda la información actualizada del carrito en la sesión 
+	 * y realiza cálculos adicionales, como el precio total y el subtotal de cada artículo.
 	 * @return	bool
 	 */
 	protected function save_cart(){
@@ -162,7 +166,7 @@ class Cart {
     }
     
     /**
-	 * Eliminar artículo: elimina un artículo del carrito.
+	 * Elimina un artículo específico del carrito.
 	 * @param	int
 	 * @return	bool
 	 */
@@ -174,7 +178,7 @@ class Cart {
 	 }
      
     /**
-	 * Destruir el carrito: Vacía el carrito y destruye la sesión.
+	 * Vacía el carrito y destruye la información del carrito almacenada en la sesión.
 	 * @return	void
 	 */
 	public function destroy(){
