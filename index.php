@@ -49,7 +49,7 @@ include 'Configuracion.php';
 
             <!-- CATÁLOGO DE PRODUCTOS -->
             <div class="panel-body">
-                <h1>Tienda de Productos</h1>
+                <h1>Tienda de Relojes</h1>
                 <a href="VerCarta.php" class="cart-link" title="Ver Carta"><i class="glyphicon glyphicon-shopping-cart"></i></a>
                 <div id="products" class="row list-group">
                     <?php
